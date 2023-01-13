@@ -1,0 +1,7 @@
+p {
+  font-family: var(--font-body);
+  font-size: var(--size-font);
+  color: var(--color-foreground);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}

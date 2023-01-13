@@ -1,4 +1,4 @@
-import {TiniComponent, Page, html} from '@tinijs/core';
+import {TiniComponent, Page, html, css, unistylus} from '@tinijs/core';
 import {UseMeta, Meta, PageMetas} from '@tinijs/meta';
 
 const metas: PageMetas = {
@@ -14,7 +14,16 @@ export class Page404 extends TiniComponent {
     this.meta.setPageMetas(metas);
   }
 
-  protected template = html`<h1 style="text-align: center;">Oops 🫣!</h1>`;
+  protected template = html`<h1>Oops 🫣!</h1>`;
+
+  static styles = [
+    unistylus``,
+    css`
+      :host {
+        text-align: center;
+      }
+    `,
+  ];
 }
 
 declare global {

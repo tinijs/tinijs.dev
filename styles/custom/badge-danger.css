@@ -1,0 +1,1 @@
+.badge-danger{border:none;border-radius:var(--size-radius);padding:calc(var(--size-spacing) * .25) calc(var(--size-spacing) * .5);font-size:.75rem;font-weight:700;background:var(--color-danger);color:var(--color-danger-contrast)}

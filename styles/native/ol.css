@@ -1,0 +1,10 @@
+ol {
+  padding-left: 2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}

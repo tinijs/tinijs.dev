@@ -1,0 +1,14 @@
+pre {
+  font-family: var(--font-code);
+  font-size: 1em;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  font-size: 0.875em;
+}
+pre code {
+  font-size: inherit;
+  color: inherit;
+  word-break: normal;
+}

@@ -1,4 +1,4 @@
-@mixin light_properties {
+@mixin dark_properties {
   // fonts
   --font-head: 'Noto Sans', sans-serif;
   --font-body: 'Noto Sans', sans-serif;
@@ -64,19 +64,19 @@
   --color-light-contrast: #000000;
   --color-light-contrast-rgb: 0,0,0;
   --color-light-shade: #d7d8da;
-  --color-light-tint: #ffffff;
-  --color-background: var(--color-light);
-  --color-background-rgb: var(--color-light-rgb);
-  --color-background-contrast: var(--color-light-contrast);
-  --color-background-contrast-rgb: var(--color-light-contrast-rgb);
-  --color-background-shade: var(--color-light-shade);
-  --color-background-tint: var(--color-light-tint);
-  --color-foreground: var(--color-dark);
-  --color-foreground-rgb: var(--color-dark-rgb);
-  --color-foreground-contrast: var(--color-dark-contrast);
-  --color-foreground-contrast-rgb: var(--color-dark-contrast-rgb);
-  --color-foreground-shade: var(--color-dark-shade);
-  --color-foreground-tint: var(--color-dark-tint);
+  --color-light-tint: #ffffff;  
+  --color-background: var(--color-dark);
+  --color-background-rgb: var(--color-dark-rgb);
+  --color-background-contrast: var(--color-dark-contrast);
+  --color-background-contrast-rgb: var(--color-dark-contrast-rgb);
+  --color-background-shade: var(--color-dark-shade);
+  --color-background-tint: var(--color-dark-tint);
+  --color-foreground: var(--color-light);
+  --color-foreground-rgb: var(--color-light-rgb);
+  --color-foreground-contrast: var(--color-light-contrast);
+  --color-foreground-contrast-rgb: var(--color-light-contrast-rgb);
+  --color-foreground-shade: var(--color-light-shade);
+  --color-foreground-tint: var(--color-light-tint);
   // recolors
   --recolor-primary: brightness(0) saturate(100%) invert(37%) sepia(73%) saturate(1013%) hue-rotate(193deg) brightness(106%) contrast(104%);
   --recolor-secondary: brightness(0) saturate(100%) invert(74%) sepia(18%) saturate(6644%) hue-rotate(169deg) brightness(100%) contrast(102%);
@@ -87,8 +87,8 @@
   --recolor-dark: brightness(0) saturate(100%) invert(10%) sepia(6%) saturate(1068%) hue-rotate(182deg) brightness(102%) contrast(91%);
   --recolor-medium: brightness(0) saturate(100%) invert(68%) sepia(9%) saturate(244%) hue-rotate(191deg) brightness(86%) contrast(85%);
   --recolor-light: brightness(0) saturate(100%) invert(91%) sepia(2%) saturate(192%) hue-rotate(188deg) brightness(108%) contrast(96%);
-  --recolor-background: var(--recolor-light);
-  --recolor-foreground: var(--recolor-dark);
+  --recolor-background: var(--recolor-dark);
+  --recolor-foreground: var(--recolor-light);
   // gradients
   --gradient-primary: linear-gradient(135deg, var(--color-primary-tint) 0%, var(--color-primary-shade) 100%);
   --gradient-secondary: linear-gradient(135deg, var(--color-secondary-tint) 0%, var(--color-secondary-shade) 100%);

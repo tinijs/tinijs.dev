@@ -1,0 +1,13 @@
+a {
+  font-family: var(--font-body);
+  font-size: var(--size-font);
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+a:hover {
+  color: var(--color-primary-shade);
+}
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}
