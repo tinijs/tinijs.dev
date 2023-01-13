@@ -1,6 +1,6 @@
 {
   "name": "tinijs.dev",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "The homepage of the TiniJS project.",
   "author": "TiniJS",
   "homepage": "https://tinijs.dev",
@@ -41,6 +41,7 @@
   "dependencies": {
     "@tinijs/core": "file:../core/tinijs-core-0.0.3.tgz",
     "@tinijs/meta": "file:../meta/tinijs-meta-0.0.3.tgz",
+    "@tinijs/pwa": "file:../pwa/tinijs-pwa-0.0.3.tgz",
     "@tinijs/router": "file:../router/tinijs-router-0.0.3.tgz",
     "@tinijs/store": "file:../store/tinijs-store-0.0.3.tgz",
     "lit": "^2.6.0"

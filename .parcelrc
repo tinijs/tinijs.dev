@@ -3,5 +3,5 @@
   "transformers": {
     "*.{ts,tsx}": ["@tinijs/parcel-transformer-default"]
   },
-  "reporters":  ["...", "@tinijs/parcel-reporter-copy-public"]
+  "reporters":  ["...", "@tinijs/parcel-reporter-copy-public", "@tinijs/parcel-reporter-build-pwa"]
 }
