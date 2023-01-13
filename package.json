@@ -1,0 +1,53 @@
+{
+  "name": "tinijs.dev",
+  "version": "0.0.3",
+  "description": "The homepage of the TiniJS project.",
+  "author": "TiniJS",
+  "homepage": "https://tinijs.dev",
+  "license": "MIT",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "targets": {
+    "main": false
+  },
+  "main": "public-api.js",
+  "typings": "public-api.d.ts",
+  "files": [
+    "app",
+    "assets",
+    "themes",
+    "styles",
+    "services",
+    "components",
+    "pages",
+    "layouts",
+    "helpers",
+    "consts",
+    "vendor",
+    "public-api.js",
+    "public-api.d.ts",
+    "!**/*.ts",
+    "**/*.d.ts"
+  ],
+  "scripts": {
+    "compile": "tsc",
+    "dev": "tini dev",
+    "lint": "gts lint",
+    "test": "tini test",
+    "build": "tini build",
+    "preview": "tini preview",
+    "build:lib": "npm run compile",
+    "ci": "npm run lint && npm run test && npm run build && npm run build:lib"
+  },
+  "dependencies": {
+    "@tinijs/core": "file:../core/tinijs-core-0.0.3.tgz",
+    "@tinijs/meta": "file:../meta/tinijs-meta-0.0.3.tgz",
+    "@tinijs/router": "file:../router/tinijs-router-0.0.3.tgz",
+    "@tinijs/store": "file:../store/tinijs-store-0.0.3.tgz",
+    "lit": "^2.6.0"
+  },
+  "devDependencies": {
+    "@tinijs/cli": "file:../cli/tinijs-cli-0.0.3.tgz",
+    "gts": "^4.0.0",
+    "typescript": "~4.9.4"
+  }
+}

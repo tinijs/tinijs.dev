@@ -1,0 +1,7 @@
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.{ts,tsx}": ["@tinijs/parcel-transformer-default"]
+  },
+  "reporters":  ["...", "@tinijs/parcel-reporter-copy-public"]
+}

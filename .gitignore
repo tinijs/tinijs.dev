@@ -1,0 +1,25 @@
+# general
+.DS_Store
+node_modules/
+
+# parceljs
+.parcel-cache/
+
+# tinijs
+www/
+
+# app
+app/*.js
+configs/*.js
+layouts/*.js
+pages/*.js
+components/*.js
+services/*.js
+helpers/*.js
+consts/*.js
+
+# lib
+public-api.js
+*.map
+*.d.ts
+*.tgz

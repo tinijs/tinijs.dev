@@ -1,0 +1,29 @@
+{
+  "files.exclude": {
+
+    // general
+    ".vscode": true,
+
+    // parceljs
+    "**/.parcel-cache": true,
+    
+    // tinijs
+    "**/www": true,
+
+    // app
+    "app/*.js": true,
+    "configs/*.js": true,
+    "layouts/*.js": true,
+    "pages/*.js": true,
+    "components/*.js": true,
+    "services/*.js": true,
+    "helpers/*.js": true,
+    "consts/*.js": true,
+
+    // lib
+    "public-api.js": true,
+    "**/*.d.ts": true,
+    "**/*.map": true
+
+  }  
+}
