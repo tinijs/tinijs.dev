@@ -1,1 +1,1 @@
-.icon{display:inline-block;content:"";background-repeat:no-repeat;background-size:contain;background-position:center;width:1rem;height:1rem;filter:var(--recolor-foreground)}
+.icon{--size:2rem;display:inline-block;content:"";background-repeat:no-repeat;background-size:contain;background-position:center;width:var(--size);height:var(--size);filter:var(--recolor-foreground)}
