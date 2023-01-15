@@ -9,7 +9,7 @@ export * from './pages/home';
 export * from './pages/404';
 
 // components
-// ...
+export * from './components/header';
 
 // services
 // ...
