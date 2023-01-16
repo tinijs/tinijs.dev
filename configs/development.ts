@@ -1,3 +1,3 @@
 export default {
-  env: 'development',
+  github: 'https://github.com/tinijs',
 };

@@ -1,24 +1,66 @@
 import {
   TiniComponent,
   Component,
+  UseConfigs,
   Reactive,
   Input,
+  Query,
   html,
   css,
   unistylus,
   classMap,
 } from '@tinijs/core';
 
+import {AppConfigs} from '../app/types';
+
 @Component('app-header')
 export class HeaderComponent extends TiniComponent {
+  @UseConfigs() configs!: AppConfigs;
+
   @Input() sticky = false;
+
   @Reactive() mobileExpanded = false;
+
+  @Query('header') headerNode!: HTMLElement;
+
+  onReady() {
+    // header bg & blur
+    setTimeout(() => this.onScroll(true), 30);
+    window.addEventListener('scroll', () => this.onScroll());
+    // close mobile menu
+    this.renderRoot
+      .querySelectorAll('.menu a')
+      .forEach(node =>
+        node.addEventListener('click', () => this.toggleMobileMenu())
+      );
+  }
+
+  onDestroy() {
+    window.removeEventListener('scroll', () => this.onScroll());
+  }
+
+  onScroll(forced = false) {
+    const scrollY = window.scrollY;
+    if (!forced && scrollY > 96) return;
+    const bgOpacity = Math.min(0.65, scrollY / 96);
+    const bgBlur = bgOpacity * 12;
+    this.headerNode.style.setProperty(
+      '--header-background',
+      `rgba(var(--color-background-rgb), ${bgOpacity})`
+    );
+    this.headerNode.style.setProperty('--header-blur', `${bgBlur}px`);
+  }
 
   toggleMobileMenu() {
     this.mobileExpanded = !this.mobileExpanded;
   }
 
-  protected template = html`<header class=${classMap({sticky: this.sticky})}>
+  protected template = html`<header
+    class=${classMap({
+      sticky: this.sticky,
+      expanded: this.mobileExpanded,
+    })}
+  >
     <button class="toggler" @click=${this.toggleMobileMenu}>
       <i
         class=${classMap({
@@ -28,11 +70,11 @@ export class HeaderComponent extends TiniComponent {
         })}
       ></i>
     </button>
-    <a href="/" class="brand">
+    <a class="brand" href="/" @click=${() => (this.mobileExpanded = false)}>
       <img src="../assets/logo.svg" />
       <h1>Tini</h1>
     </a>
-    <ul class=${classMap({menu: true, expanded: this.mobileExpanded})}>
+    <ul class="menu">
       <li class="docs"><a href="/docs">Docs</a></li>
       <li class="modules"><a href="/modules">Modules</a></li>
       <li class="support"><a href="/support">Support</a></li>
@@ -40,7 +82,7 @@ export class HeaderComponent extends TiniComponent {
     </ul>
     <ul class="links">
       <li class="github">
-        <a href="https://github.com/tinijs" target="_blank">
+        <a href=${this.configs.github} target="_blank">
           <i class="icon icon-github"></i>
         </a>
       </li>
@@ -54,7 +96,8 @@ export class HeaderComponent extends TiniComponent {
     `,
     css`
       header {
-        background: gray;
+        background: var(--header-background, transparent);
+        backdrop-filter: blur(var(--header-blur, 0));
         width: 100%;
         max-width: 1200px;
         margin: auto;
@@ -65,70 +108,91 @@ export class HeaderComponent extends TiniComponent {
         align-items: center;
         line-height: 1;
 
+        &,
         &.sticky {
-          position: sticky;
-          border-color: var(--color-medium);
-        }
-      }
-
-      .toggler {
-        background: none;
-        border: 0;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .icon {
-          --size: 28px;
-        }
-      }
-
-      .brand {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-
-        img {
-          width: 1.5rem;
-          margin-right: 5px;
+          z-index: 500;
+          position: fixed;
+          top: 0;
+          left: 0;
         }
 
-        h1 {
+        .toggler {
+          background: none;
+          border: 0;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .icon {
+            --size: 28px;
+          }
+        }
+
+        .brand {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+
+          img {
+            width: 1.5rem;
+            margin-right: 5px;
+          }
+
+          h1 {
+            display: none;
+          }
+        }
+
+        .menu {
           display: none;
+          background: var(--color-background);
+          margin: 0;
+          padding: 1rem;
+          list-style: none;
+          position: fixed;
+          border-top: 1px solid transparent;
+          top: 64px;
+          left: 0;
+          width: 100%;
+          height: calc(100vh - 64px);
+
+          li {
+            padding: 1rem;
+            text-align: center;
+
+            a {
+              color: var(--color-foreground);
+              text-decoration: none;
+            }
+          }
+        }
+
+        .links {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          .icon {
+            --size: 20px;
+          }
         }
       }
 
-      .menu {
+      header.expanded {
         background: var(--color-background);
-        background: #aaaaaa;
-        display: none;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        position: fixed;
-        border-top: 1px solid transparent;
-        top: 64px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 64px);
 
-        &.expanded {
+        .menu {
           display: block;
-          border-color: var(--color-medium);
+          border-color: var(--color-background-shade);
         }
       }
 
-      .links {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
-        .icon {
-          --size: 20px;
-        }
+      header.sticky {
+        background: var(--color-background);
+        border-color: var(--color-background-shade);
       }
     `,
   ];
