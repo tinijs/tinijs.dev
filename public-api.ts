@@ -10,6 +10,9 @@ export * from './pages/404';
 
 // components
 export * from './components/header';
+export * from './components/footer';
+export * from './components/themer';
+export * from './components/social-icons';
 
 // services
 // ...

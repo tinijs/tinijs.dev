@@ -1,7 +1,6 @@
 import {
   TiniComponent,
   Component,
-  UseConfigs,
   Reactive,
   Input,
   Query,
@@ -11,12 +10,11 @@ import {
   classMap,
 } from '@tinijs/core';
 
-import {AppConfigs} from '../app/types';
+import './themer';
+import './social-icons';
 
 @Component('app-header')
 export class HeaderComponent extends TiniComponent {
-  @UseConfigs() configs!: AppConfigs;
-
   @Input() sticky = false;
 
   @Reactive() mobileExpanded = false;
@@ -58,11 +56,6 @@ export class HeaderComponent extends TiniComponent {
     this.mobileExpanded = !this.mobileExpanded;
   }
 
-  changeTheme(e: Event) {
-    const {checked} = e.target as HTMLInputElement;
-    document.body.dataset.theme = checked ? 'dark' : 'light';
-  }
-
   protected template = html`<header
     class=${classMap({
       sticky: this.sticky,
@@ -88,23 +81,17 @@ export class HeaderComponent extends TiniComponent {
       <li class="support"><a href="/support">Support</a></li>
       <li class="about"><a href="/about">About</a></li>
     </ul>
-    <ul class="links">
-      <li class="github">
-        <a href=${this.configs.github} target="_blank">
-          <i class="icon icon-github"></i>
-        </a>
-      </li>
-    </ul>
+    <div class="social-icons">
+      <app-social-icons></app-social-icons>
+    </div>
     <div class="themer">
-      <label class="form-switch">
-        <input type="checkbox" @change=${this.changeTheme} />
-        <span class="slider"></span>
-      </label>
+      <app-themer></app-themer>
     </div>
   </header>`;
 
   static styles = [
     unistylus`
+      icon
       icon-menu
       icon-close
     `,
@@ -180,17 +167,11 @@ export class HeaderComponent extends TiniComponent {
             a {
               color: var(--color-foreground);
               text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
             }
-          }
-        }
-
-        .links {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-
-          .icon {
-            --size: 20px;
           }
         }
 
@@ -209,7 +190,7 @@ export class HeaderComponent extends TiniComponent {
           border-color: var(--color-background-shade);
         }
 
-        .links {
+        .social-icons {
           display: none;
         }
 

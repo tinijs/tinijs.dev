@@ -1,0 +1,46 @@
+import {
+  TiniComponent,
+  Component,
+  UseConfigs,
+  html,
+  css,
+  unistylus,
+} from '@tinijs/core';
+
+import {AppConfigs} from '../app/types';
+
+@Component('app-social-icons')
+export class SocialIconsComponent extends TiniComponent {
+  @UseConfigs() configs!: AppConfigs;
+
+  protected template = html`
+    <ul>
+      <li class="github">
+        <a href=${this.configs.github} target="_blank">
+          <i class="icon icon-github"></i>
+        </a>
+      </li>
+    </ul>
+  `;
+
+  static styles = [
+    unistylus``,
+    css`
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .icon {
+          --size: 20px;
+        }
+      }
+    `,
+  ];
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'app-social-icons': SocialIconsComponent;
+  }
+}
