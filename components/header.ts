@@ -23,10 +23,13 @@ export class HeaderComponent extends TiniComponent {
 
   @Query('header') headerNode!: HTMLElement;
 
-  onReady() {
+  onCreate() {
     // header bg & blur
-    setTimeout(() => this.onScroll(true), 30);
+    window.addEventListener('load', () => this.onScroll(true));
     window.addEventListener('scroll', () => this.onScroll());
+  }
+
+  onReady() {
     // close mobile menu
     this.renderRoot
       .querySelectorAll('.menu a')
@@ -53,6 +56,11 @@ export class HeaderComponent extends TiniComponent {
 
   toggleMobileMenu() {
     this.mobileExpanded = !this.mobileExpanded;
+  }
+
+  changeTheme(e: Event) {
+    const {checked} = e.target as HTMLInputElement;
+    document.body.dataset.theme = checked ? 'dark' : 'light';
   }
 
   protected template = html`<header
@@ -87,6 +95,12 @@ export class HeaderComponent extends TiniComponent {
         </a>
       </li>
     </ul>
+    <div class="themer">
+      <label class="form-switch">
+        <input type="checkbox" @change=${this.changeTheme} />
+        <span class="slider"></span>
+      </label>
+    </div>
   </header>`;
 
   static styles = [
@@ -179,6 +193,12 @@ export class HeaderComponent extends TiniComponent {
             --size: 20px;
           }
         }
+
+        .themer {
+          display: none;
+          width: 20px;
+          transform: translateX(-15px);
+        }
       }
 
       header.expanded {
@@ -187,6 +207,14 @@ export class HeaderComponent extends TiniComponent {
         .menu {
           display: block;
           border-color: var(--color-background-shade);
+        }
+
+        .links {
+          display: none;
+        }
+
+        .themer {
+          display: block;
         }
       }
 
