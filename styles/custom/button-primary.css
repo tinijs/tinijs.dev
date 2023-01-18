@@ -2,10 +2,11 @@
   display: block;
   position: relative;
   border: none;
-  border-radius: calc(var(--size-radius) - 3px);
+  border-radius: calc(var(--size-radius) - 2px);
   text-decoration: none;
-  padding: calc(var(--size-spacing) * 0.5) calc(var(--size-spacing) * 1);
-  background: var(--color-dark);
+  line-height: 1;
+  padding: calc(var(--size-spacing) * 0.7) calc(var(--size-spacing) * 1);
+  background: var(--color-dark-tint);
   color: var(--color-light);
 }
 .button-primary::before {

@@ -121,6 +121,7 @@ export class HeaderComponent extends TiniComponent {
           background: none;
           border: 0;
           padding: 0;
+          margin-right: 35px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -177,8 +178,8 @@ export class HeaderComponent extends TiniComponent {
 
         .themer {
           display: none;
-          width: 20px;
-          transform: translateX(-15px);
+          width: 59.19px;
+          justify-content: flex-end;
         }
       }
 
@@ -195,7 +196,7 @@ export class HeaderComponent extends TiniComponent {
         }
 
         .themer {
-          display: block;
+          display: flex;
         }
       }
 

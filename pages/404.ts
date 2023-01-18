@@ -14,13 +14,31 @@ export class Page404 extends TiniComponent {
     this.meta.setPageMetas(metas);
   }
 
-  protected template = html`<h1>Oops 🫣!</h1>`;
+  protected template = html`
+    <h1>Oops! 🫣</h1>
+    <p>Something is broken here.</p>
+    <p><a class="button-primary" href="/">Home</a></p>
+  `;
 
   static styles = [
     unistylus``,
     css`
       :host {
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: calc(100vh - 64px - 237px);
+      }
+
+      p {
+        color: var(--color-medium);
+      }
+
+      p:last-child {
+        margin-top: 1rem;
       }
     `,
   ];

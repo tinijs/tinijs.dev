@@ -81,6 +81,7 @@ export class AppWelcome extends TiniComponent {
             margin: 2rem 0;
             font-size: 3.5rem;
             font-weight: normal;
+            text-align: center;
           }
 
           .tagline {
@@ -88,6 +89,7 @@ export class AppWelcome extends TiniComponent {
             font-weight: 300;
             line-height: 1.75;
             color: var(--color-medium-shade);
+            text-align: center;
           }
 
           .actions {

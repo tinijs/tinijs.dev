@@ -17,7 +17,8 @@ export class PageHome extends TiniComponent {
     unistylus``,
     css`
       :host {
-        text-align: center;
+        display: block;
+        margin-top: -64px;
       }
     `,
   ];

@@ -11,6 +11,10 @@ export class LayoutDefault extends TiniComponent {
       width: 100vw;
       overflow-x: hidden;
     }
+
+    .page {
+      margin-top: 64px;
+    }
   `;
 
   protected render() {
