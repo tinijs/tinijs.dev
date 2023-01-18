@@ -1,0 +1,11 @@
+.icon {
+  --size: 2rem;
+  display: inline-block;
+  content: '';
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: var(--size);
+  height: var(--size);
+  filter: var(--recolor-foreground);
+}

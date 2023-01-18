@@ -1,0 +1,9 @@
+.badge-danger {
+  border: none;
+  border-radius: var(--size-radius);
+  padding: calc(var(--size-spacing) * 0.25) calc(var(--size-spacing) * 0.5);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--color-danger);
+  color: var(--color-danger-contrast);
+}

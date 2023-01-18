@@ -90,11 +90,7 @@ export class HeaderComponent extends TiniComponent {
   </header>`;
 
   static styles = [
-    unistylus`
-      icon
-      icon-menu
-      icon-close
-    `,
+    unistylus``,
     css`
       header {
         background: var(--header-background, transparent);
