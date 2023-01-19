@@ -18,47 +18,32 @@ export class TermsPage extends TiniComponent {
     <h3>2. Use License</h3>
 
     <p>
-      Permission is granted to temporarily download one copy of the materials on
-      TiniJS Hompage's Website for personal, non-commercial transitory viewing
-      only. This is the grant of a license, not a transfer of title, and under
-      this license you may not:
+      Permission is hereby granted, free of charge, to any person obtaining a
+      copy of this website and associated materials (the "TiniJS Homepage"), to
+      deal in the TiniJS Homepage without restriction, including without
+      limitation the rights to use, copy, modify, merge, publish, distribute,
+      sublicense, and/or sell copies of the TiniJS Homepage, and to permit
+      persons to whom the TiniJS Homepage is furnished to do so, subject to the
+      following conditions:
     </p>
 
     <ul>
-      <li>modify or copy the materials;</li>
       <li>
-        use the materials for any commercial purpose or for any public display;
-      </li>
-      <li>
-        attempt to reverse engineer any software contained on TiniJS Hompage's
-        Website;
-      </li>
-      <li>
-        remove any copyright or other proprietary notations from the materials;
-        or
-      </li>
-      <li>
-        transferring the materials to another person or "mirror" the materials
-        on any other server.
+        The above copyright notice and this permission notice shall be included
+        in all copies or substantial portions of the Website.
       </li>
     </ul>
-
-    <p>
-      This will let TiniJS Hompage to terminate upon violations of any of these
-      restrictions. Upon termination, your viewing right will also be terminated
-      and you should destroy any downloaded materials in your possession whether
-      it is printed or electronic format.
-    </p>
 
     <h3>3. Disclaimer</h3>
 
     <p>
-      All the materials on TiniJS Hompage’s Website are provided "as is". Lam
-      Nhan Web App makes no warranties, may it be expressed or implied,
-      therefore negates all other warranties. Furthermore, TiniJS Hompage does
-      not make any representations concerning the accuracy or reliability of the
-      use of the materials on its Website or otherwise relating to such
-      materials or any sites linked to this Website.
+      THE TINIJS HOMEPAGE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+      EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+      MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+      NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+      DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+      OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE TINIJS HOMEPAGE
+      OR THE USE OR OTHER DEALINGS IN THE TINIJS HOMEPAGE.
     </p>
 
     <h3>4. Limitations</h3>
@@ -103,13 +88,13 @@ export class TermsPage extends TiniComponent {
 
     <h3>8. Your Privacy</h3>
 
-    <p>Please read our Privacy Policy.</p>
+    <p>Please read our <a href="/privacy">Privacy Policy</a>.</p>
 
     <h3>9. Governing Law</h3>
 
     <p>
       Any claim related to TiniJS Hompage's Website shall be governed by the
-      laws of vn without regards to its conflict of law provisions.
+      laws of Vietnam without regards to its conflict of law provisions.
     </p>`;
 
   static styles = [
