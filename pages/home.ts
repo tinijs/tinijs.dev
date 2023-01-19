@@ -11,7 +11,7 @@ export class HomePage extends TiniComponent {
     this.meta.setHomeMetas();
   }
 
-  protected template = html`<app-welcome></app-welcome>`;
+  protected template = html`<app-welcome await></app-welcome>`;
 
   static styles = [
     unistylus``,
