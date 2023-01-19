@@ -11,7 +11,8 @@ const providers = {
   /*
    * Services
    */
-  // ...
+  settingService: () => import('../services/setting'),
+
   /*
    * Vendors
    */

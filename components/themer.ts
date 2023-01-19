@@ -1,10 +1,45 @@
-import {TiniComponent, Component, html, css, unistylus} from '@tinijs/core';
+import {
+  TiniComponent,
+  Component,
+  Inject,
+  html,
+  css,
+  unistylus,
+  SubscribeObservable,
+  ObservableSubscription,
+} from '@tinijs/core';
+import {SettingService} from '../services/setting';
 
 @Component('app-themer')
 export class ThemerComponent extends TiniComponent {
+  @Inject() settingService!: SettingService;
+
+  @SubscribeObservable()
+  themeSubscription!: ObservableSubscription<string>;
+
+  onInit() {
+    this.themeSubscription.subscribe(
+      this.settingService.themeChanged(theme => {
+        const isDark = theme === 'dark';
+        const root = this.renderRoot;
+        // status
+        const labelNode = root?.querySelector('label');
+        if (labelNode) {
+          labelNode.classList[isDark ? 'add' : 'remove']('on');
+        }
+        // checkbox
+        const inputNode = root?.querySelector('input');
+        if (inputNode) {
+          inputNode.checked = isDark;
+        }
+      })
+    );
+  }
+
   changeTheme(e: Event) {
-    const {checked} = e.target as HTMLInputElement;
-    document.body.dataset.theme = checked ? 'dark' : 'light';
+    this.settingService.changeTheme(
+      (e.target as HTMLInputElement).checked ? 'dark' : 'light'
+    );
   }
 
   protected template = html`

@@ -33,10 +33,12 @@
   transition: 0.4s;
   border-radius: 50%;
 }
-.form-switch input:checked + .slider {
+.form-switch input:checked + .slider,
+.form-switch.on .slider {
   background-color: var(--color-foreground-tint);
 }
-.form-switch input:checked + .slider:before {
+.form-switch input:checked + .slider:before,
+.form-switch.on .slider:before {
   -webkit-transform: translateX(15px);
   -ms-transform: translateX(15px);
   transform: translateX(15px);
