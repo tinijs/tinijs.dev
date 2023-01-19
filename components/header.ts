@@ -2,7 +2,6 @@ import {
   TiniComponent,
   Component,
   Reactive,
-  Input,
   Query,
   html,
   css,
@@ -15,32 +14,12 @@ import './social-icons';
 
 @Component('app-header')
 export class HeaderComponent extends TiniComponent {
-  @Input() sticky = false;
-
+  @Reactive() solid = false;
   @Reactive() mobileExpanded = false;
 
   @Query('header') headerNode!: HTMLElement;
 
-  onCreate() {
-    // header bg & blur
-    window.addEventListener('load', () => this.onScroll(true));
-    window.addEventListener('scroll', () => this.onScroll());
-  }
-
-  onReady() {
-    // close mobile menu
-    this.renderRoot
-      .querySelectorAll('.menu a')
-      .forEach(node =>
-        node.addEventListener('click', () => this.toggleMobileMenu())
-      );
-  }
-
-  onDestroy() {
-    window.removeEventListener('scroll', () => this.onScroll());
-  }
-
-  onScroll(forced = false) {
+  private scrollEvent(forced = false) {
     const scrollY = window.scrollY;
     if (!forced && scrollY > 96) return;
     const bgOpacity = Math.min(0.65, scrollY / 96);
@@ -52,17 +31,60 @@ export class HeaderComponent extends TiniComponent {
     this.headerNode.style.setProperty('--header-blur', `${bgBlur}px`);
   }
 
-  toggleMobileMenu() {
-    this.mobileExpanded = !this.mobileExpanded;
+  private popstateEvent() {
+    this.solid = location.pathname !== '/';
+  }
+
+  private manageGlobalEvents(action: 'add' | 'remove') {
+    // window load
+    const windowLoadListener = () => {
+      this.scrollEvent(true);
+      this.popstateEvent();
+    };
+    window[`${action}EventListener`]('load', windowLoadListener.bind(this));
+    // window scroll
+    const windowScrollListener = () => {
+      this.scrollEvent();
+    };
+    window[`${action}EventListener`]('scroll', windowScrollListener.bind(this));
+    // window popstate
+    const windowPopstateListener = () => {
+      this.popstateEvent();
+    };
+    window[`${action}EventListener`](
+      'popstate',
+      windowPopstateListener.bind(this)
+    );
+  }
+
+  onCreate() {
+    this.manageGlobalEvents('add');
+  }
+
+  onReady() {
+    this.renderRoot
+      .querySelectorAll('.menu a')
+      .forEach(node =>
+        node.addEventListener('click', () => this.toggleMobileMenu())
+      );
+  }
+
+  onDestroy() {
+    this.manageGlobalEvents('remove');
+  }
+
+  toggleMobileMenu(expanded?: boolean) {
+    this.mobileExpanded = expanded ?? !this.mobileExpanded;
+    document.body.style.overflow = this.mobileExpanded ? 'hidden' : 'auto';
   }
 
   protected template = html`<header
     class=${classMap({
-      sticky: this.sticky,
+      solid: this.solid,
       expanded: this.mobileExpanded,
     })}
   >
-    <button class="toggler" @click=${this.toggleMobileMenu}>
+    <button class="toggler" @click=${() => this.toggleMobileMenu()}>
       <i
         class=${classMap({
           icon: true,
@@ -71,7 +93,7 @@ export class HeaderComponent extends TiniComponent {
         })}
       ></i>
     </button>
-    <a class="brand" href="/" @click=${() => (this.mobileExpanded = false)}>
+    <a class="brand" href="/" @click=${() => this.toggleMobileMenu(false)}>
       <img src="../assets/logo.svg" />
       <h1>Tini</h1>
     </a>
@@ -93,8 +115,11 @@ export class HeaderComponent extends TiniComponent {
     unistylus``,
     css`
       header {
-        background: var(--header-background, transparent);
-        backdrop-filter: blur(var(--header-blur, 0));
+        background: var(
+          --header-background,
+          rgba(var(--color-background-rgb), 0.325)
+        );
+        backdrop-filter: blur(var(--header-blur, 12px));
         width: 100%;
         max-width: 1200px;
         margin: auto;
@@ -106,7 +131,7 @@ export class HeaderComponent extends TiniComponent {
         line-height: 1;
 
         &,
-        &.sticky {
+        &.solid {
           z-index: 500;
           position: fixed;
           top: 0;
@@ -152,7 +177,7 @@ export class HeaderComponent extends TiniComponent {
           list-style: none;
           position: fixed;
           border-top: 1px solid transparent;
-          top: 64px;
+          top: 65px;
           left: 0;
           width: 100%;
           height: calc(100vh - 64px);
@@ -179,12 +204,15 @@ export class HeaderComponent extends TiniComponent {
         }
       }
 
-      header.expanded {
+      header.expanded,
+      header.solid {
         background: var(--color-background);
+        border-color: var(--color-background-shade);
+      }
 
+      header.expanded {
         .menu {
           display: block;
-          border-color: var(--color-background-shade);
         }
 
         .social-icons {
@@ -194,11 +222,6 @@ export class HeaderComponent extends TiniComponent {
         .themer {
           display: flex;
         }
-      }
-
-      header.sticky {
-        background: var(--color-background);
-        border-color: var(--color-background-shade);
       }
     `,
   ];

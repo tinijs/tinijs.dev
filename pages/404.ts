@@ -24,12 +24,13 @@ export class OopsPage extends TiniComponent {
     unistylus``,
     css`
       :host {
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        width: calc(100% - 2rem);
+        width: 100%;
         padding: 3rem 1rem 1rem;
       }
 

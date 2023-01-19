@@ -3,8 +3,8 @@ import {
   Component,
   UseConfigs,
   html,
-  unistylus,
   css,
+  unistylus,
 } from '@tinijs/core';
 
 import {AppConfigs} from '../app/types';
