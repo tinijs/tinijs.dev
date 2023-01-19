@@ -18,13 +18,18 @@ export class TermsPage extends TiniComponent {
     <h3>2. Use License</h3>
 
     <p>
+      Copyright (C) by Lam Nhan
+      <a href="https://lamnhan.com" target="_blank">https://lamnhan.com</a>
+    </p>
+
+    <p>
       Permission is hereby granted, free of charge, to any person obtaining a
-      copy of this website and associated materials (the "TiniJS Homepage"), to
-      deal in the TiniJS Homepage without restriction, including without
+      copy of this website and associated materials (the "Website" or "TiniJS
+      Homepage"), to deal in the Website without restriction, including without
       limitation the rights to use, copy, modify, merge, publish, distribute,
-      sublicense, and/or sell copies of the TiniJS Homepage, and to permit
-      persons to whom the TiniJS Homepage is furnished to do so, subject to the
-      following conditions:
+      sublicense, and/or sell copies of the Website, and to permit persons to
+      whom the Website is furnished to do so, subject to the following
+      conditions:
     </p>
 
     <ul>
@@ -37,13 +42,13 @@ export class TermsPage extends TiniComponent {
     <h3>3. Disclaimer</h3>
 
     <p>
-      THE TINIJS HOMEPAGE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-      EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-      MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-      NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-      DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-      OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE TINIJS HOMEPAGE
-      OR THE USE OR OTHER DEALINGS IN THE TINIJS HOMEPAGE.
+      THE WEBSITE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+      THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+      FROM, OUT OF OR IN CONNECTION WITH THE WEBSITE OR THE USE OR OTHER
+      DEALINGS IN THE WEBSITE.
     </p>
 
     <h3>4. Limitations</h3>
