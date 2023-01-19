@@ -4,7 +4,7 @@ import '../components/header';
 import '../components/footer';
 
 @Layout('layout-default')
-export class LayoutDefault extends TiniComponent {
+export class DefaultLayout extends TiniComponent {
   static styles = css`
     :host {
       display: block;
@@ -12,15 +12,17 @@ export class LayoutDefault extends TiniComponent {
       overflow-x: hidden;
     }
 
-    .page {
+    .body {
+      width: 100%;
       margin-top: 64px;
+      min-height: calc(100vh - 64px - 237px);
     }
   `;
 
   protected render() {
     return html`
       <app-header></app-header>
-      <div class="page"><slot></slot></div>
+      <div class="body"><slot></slot></div>
       <app-footer></app-footer>
     `;
   }
@@ -28,6 +30,6 @@ export class LayoutDefault extends TiniComponent {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'layout-default': LayoutDefault;
+    'layout-default': DefaultLayout;
   }
 }

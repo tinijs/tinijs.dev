@@ -6,6 +6,12 @@ export * from './layouts/default';
 
 // pages
 export * from './pages/home';
+export * from './pages/docs';
+export * from './pages/modules';
+export * from './pages/terms';
+export * from './pages/privacy';
+export * from './pages/support';
+export * from './pages/about';
 export * from './pages/404';
 
 // components

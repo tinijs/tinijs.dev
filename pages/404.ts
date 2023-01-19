@@ -7,7 +7,7 @@ const metas: PageMetas = {
 };
 
 @Page('page-404')
-export class Page404 extends TiniComponent {
+export class OopsPage extends TiniComponent {
   @UseMeta() meta!: Meta;
 
   onReady() {
@@ -29,8 +29,8 @@ export class Page404 extends TiniComponent {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        height: calc(100vh - 64px - 237px);
+        width: calc(100% - 2rem);
+        padding: 3rem 1rem 1rem;
       }
 
       p {
@@ -46,6 +46,6 @@ export class Page404 extends TiniComponent {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'page-404': Page404;
+    'page-404': OopsPage;
   }
 }

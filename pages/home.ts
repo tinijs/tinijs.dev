@@ -4,7 +4,7 @@ import {UseMeta, Meta} from '@tinijs/meta';
 import '../components/welcome';
 
 @Page('page-home')
-export class PageHome extends TiniComponent {
+export class HomePage extends TiniComponent {
   @UseMeta() meta!: Meta;
 
   onReady() {
@@ -26,6 +26,6 @@ export class PageHome extends TiniComponent {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'page-home': PageHome;
+    'page-home': HomePage;
   }
 }
