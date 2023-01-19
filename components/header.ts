@@ -123,7 +123,6 @@ export class HeaderComponent extends TiniComponent {
         width: 100%;
         max-width: 1200px;
         margin: auto;
-        box-sizing: border-box;
         padding: 1rem 0.5rem;
         border-bottom: 1px solid transparent;
         display: flex;

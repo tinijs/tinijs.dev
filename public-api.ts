@@ -15,6 +15,7 @@ export * from './pages/about';
 export * from './pages/404';
 
 // components
+export * from './components/nav-indicator';
 export * from './components/header';
 export * from './components/footer';
 export * from './components/themer';

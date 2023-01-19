@@ -9,11 +9,12 @@ import routes from './routes';
 import {metas} from './metas';
 import states, {Store} from './states';
 
+import '../components/nav-indicator';
 import '../layouts/default';
 import '../pages/home';
 import '../pages/404';
 
-@App(providers)
+@App(providers, {navIndicator: true})
 export class AppRoot extends TiniComponent {
   $configs = configs;
   $meta!: Meta;
@@ -26,7 +27,12 @@ export class AppRoot extends TiniComponent {
     this.$store = createStore(states);
   }
 
-  protected template = html`${APP_ROOT_TEMPLATE}`;
+  protected render() {
+    return html`
+      ${APP_ROOT_TEMPLATE}
+      <app-nav-indicator></app-nav-indicator>
+    `;
+  }
 }
 
 declare global {
