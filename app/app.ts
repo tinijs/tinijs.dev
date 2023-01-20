@@ -1,7 +1,15 @@
-import {TiniComponent, App, APP_ROOT_TEMPLATE, html} from '@tinijs/core';
+import {
+  TiniComponent,
+  App,
+  APP_ROOT_TEMPLATE,
+  Inject,
+  html,
+  hideAppSplashscreen,
+} from '@tinijs/core';
 import {initMetas, Meta} from '@tinijs/meta';
 import {registerRoutes, Router} from '@tinijs/router';
 import {createStore} from '@tinijs/store';
+import {LocalstorageService, SettingService} from '@tinijs/useful';
 
 import configs from '../configs/development';
 import providers from './providers';
@@ -15,12 +23,24 @@ import '../layouts/default';
 import '../pages/home';
 import '../pages/404';
 
-@App(providers, {splashscreen: 'auto', navIndicator: true})
+@App(providers, {splashscreen: 'manual', navIndicator: true})
 export class AppRoot extends TiniComponent {
   $configs = configs;
   $meta!: Meta;
   $router!: Router;
   $store!: Store;
+
+  @Inject() localstorageService!: LocalstorageService;
+  @Inject() settingService!: SettingService;
+
+  onInit() {
+    this.localstorageService.init();
+    this.settingService
+      .integrateLocalstorage(this.localstorageService)
+      .setDefaults({theme: 'light'})
+      .onReady(() => hideAppSplashscreen())
+      .init();
+  }
 
   onReady() {
     this.$meta = initMetas({metas});

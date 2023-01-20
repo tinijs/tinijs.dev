@@ -11,7 +11,8 @@ const providers = {
   /*
    * Services
    */
-  settingService: () => import('../services/setting'),
+  localstorageService: () => import('@tinijs/useful/services/localstorage'),
+  settingService: () => import('@tinijs/useful/services/setting'),
 
   /*
    * Vendors

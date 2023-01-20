@@ -8,7 +8,7 @@ import {
   Observe,
   Observer,
 } from '@tinijs/core';
-import {SettingService} from '../services/setting';
+import {SettingService} from '@tinijs/useful';
 
 @Component('app-themer')
 export class ThemerComponent extends TiniComponent {
