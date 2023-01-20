@@ -5,8 +5,8 @@ import {
   html,
   css,
   unistylus,
-  SubscribeObservable,
-  ObservableSubscription,
+  Observe,
+  Observer,
 } from '@tinijs/core';
 import {SettingService} from '../services/setting';
 
@@ -14,21 +14,19 @@ import {SettingService} from '../services/setting';
 export class ThemerComponent extends TiniComponent {
   @Inject() settingService!: SettingService;
 
-  @SubscribeObservable()
-  themeSubscription!: ObservableSubscription<string>;
+  @Observe() settingObserver!: Observer<string>;
 
   onInit() {
-    this.themeSubscription.subscribe(
+    this.settingObserver.subscribe(
       this.settingService.themeChanged(theme => {
         const isDark = theme === 'dark';
-        const root = this.renderRoot;
-        // status
-        const labelNode = root?.querySelector('label');
-        if (labelNode) {
-          labelNode.classList[isDark ? 'add' : 'remove']('on');
+        // switcher state
+        const switcherNode = this.renderRoot?.querySelector('.form-switch');
+        if (switcherNode) {
+          switcherNode.classList[isDark ? 'add' : 'remove']('on');
         }
         // checkbox
-        const inputNode = root?.querySelector('input');
+        const inputNode = switcherNode?.querySelector('input');
         if (inputNode) {
           inputNode.checked = isDark;
         }
