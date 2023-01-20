@@ -16,7 +16,6 @@ export * from './pages/404';
 
 // components
 export * from './components/nav-indicator';
-export * from './components/splashscreen';
 export * from './components/header';
 export * from './components/footer';
 export * from './components/themer';

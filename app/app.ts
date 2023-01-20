@@ -17,7 +17,6 @@ import routes from './routes';
 import {metas} from './metas';
 import states, {Store} from './states';
 
-import '../components/splashscreen';
 import '../components/nav-indicator';
 import '../layouts/default';
 import '../pages/home';
@@ -49,7 +48,6 @@ export class AppRoot extends TiniComponent {
   }
 
   protected template = html`
-    <app-splashscreen></app-splashscreen>
     ${APP_ROOT_TEMPLATE}
     <app-nav-indicator></app-nav-indicator>
   `;

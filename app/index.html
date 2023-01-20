@@ -41,11 +41,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Playfair+Display&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <!-- Splashscreen -->
+    <link rel="stylesheet" href="./splashscreen.scss" />
+    <script type="module" src="./splashscreen.ts"></script>
     <!-- App -->
     <link rel="stylesheet" href="./app.scss" />
     <script type="module" src="./app.ts"></script>
   </head>
   <body>
     <app-root></app-root>
+    <div id="splashscreen">
+      <div class="body"><img src="../assets/logo.svg" /></div>
+      <div class="foot"><span>Still working, please wait! 👌</span></div>
+    </div>
   </body>
 </html>
