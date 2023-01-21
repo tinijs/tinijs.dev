@@ -37,8 +37,7 @@ export class AppRoot extends TiniComponent {
     this.settingService
       .integrateLocalstorage(this.localstorageService)
       .setDefaults({theme: 'light'})
-      .onReady(() => hideAppSplashscreen())
-      .init();
+      .init(() => hideAppSplashscreen());
   }
 
   onReady() {
