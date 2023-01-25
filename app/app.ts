@@ -20,7 +20,7 @@ import states, {Store} from './states';
 import '../components/nav-indicator';
 import '../layouts/default';
 import '../pages/home';
-import '../pages/404';
+import '../pages/oops';
 
 @App(providers, {splashscreen: 'manual', navIndicator: true})
 export class AppRoot extends TiniComponent {

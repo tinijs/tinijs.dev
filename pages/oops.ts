@@ -1,7 +1,7 @@
 import {TiniComponent, Page, html, css, unistylus} from '@tinijs/core';
 import {PageMetas} from '@tinijs/meta';
 
-@Page('page-404')
+@Page('page-oops')
 export class OopsPage extends TiniComponent {
   metas: PageMetas = {
     title: 'Oops',

@@ -53,7 +53,7 @@ const routes: Route[] = [
       },
       {
         path: '(.*)',
-        component: 'page-404',
+        component: 'page-oops',
       },
     ],
   },

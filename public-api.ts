@@ -12,7 +12,7 @@ export * from './pages/terms';
 export * from './pages/privacy';
 export * from './pages/support';
 export * from './pages/about';
-export * from './pages/404';
+export * from './pages/oops';
 
 // components
 export * from './components/nav-indicator';
