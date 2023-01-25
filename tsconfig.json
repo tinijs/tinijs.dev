@@ -6,6 +6,7 @@
     "skipLibCheck": true
   },
   "include": [
+    ".tini/tini.d.ts",
     "**/*.ts"
   ]
 }

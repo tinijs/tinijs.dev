@@ -32,6 +32,13 @@ export class AppRoot extends TiniComponent {
   @Inject() localstorageService!: LocalstorageService;
   @Inject() settingService!: SettingService;
 
+  protected render() {
+    return html`
+      ${APP_ROOT_TEMPLATE}
+      <app-nav-indicator></app-nav-indicator>
+    `;
+  }
+
   onInit() {
     this.localstorageService.init();
     this.settingService
@@ -44,16 +51,5 @@ export class AppRoot extends TiniComponent {
     this.$meta = initMetas({metas});
     this.$router = registerRoutes(routes);
     this.$store = createStore(states);
-  }
-
-  protected template = html`
-    ${APP_ROOT_TEMPLATE}
-    <app-nav-indicator></app-nav-indicator>
-  `;
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'app-root': AppRoot;
   }
 }

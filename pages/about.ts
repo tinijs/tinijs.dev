@@ -2,8 +2,6 @@ import {TiniComponent, Page, html, css, unistylus} from '@tinijs/core';
 
 @Page('page-about')
 export class AboutPage extends TiniComponent {
-  protected template = html`<p>AboutPage</p>`;
-
   static styles = [
     unistylus``,
     css`
@@ -12,10 +10,8 @@ export class AboutPage extends TiniComponent {
       }
     `,
   ];
-}
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'page-about': AboutPage;
+  protected render() {
+    return html`<p>AboutPage</p>`;
   }
 }

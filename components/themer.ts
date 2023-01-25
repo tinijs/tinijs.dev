@@ -16,6 +16,24 @@ export class ThemerComponent extends TiniComponent {
 
   @Observe() settingObserver!: Observer<string>;
 
+  static styles = [
+    unistylus``,
+    css`
+      :host {
+        margin: 0;
+      }
+    `,
+  ];
+
+  protected render() {
+    return html`
+      <label class="form-switch">
+        <input type="checkbox" @change=${this.changeTheme} />
+        <span class="slider"></span>
+      </label>
+    `;
+  }
+
   onInit() {
     this.settingObserver.subscribe(
       this.settingService.themeChanged(theme => {
@@ -38,27 +56,5 @@ export class ThemerComponent extends TiniComponent {
     this.settingService.changeTheme(
       (e.target as HTMLInputElement).checked ? 'dark' : 'light'
     );
-  }
-
-  protected template = html`
-    <label class="form-switch">
-      <input type="checkbox" @change=${this.changeTheme} />
-      <span class="slider"></span>
-    </label>
-  `;
-
-  static styles = [
-    unistylus``,
-    css`
-      :host {
-        margin: 0;
-      }
-    `,
-  ];
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'app-themer': ThemerComponent;
   }
 }

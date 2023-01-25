@@ -11,19 +11,26 @@
     "**/www": true,
 
     // app
-    "app/*.js": true,
-    "configs/*.js": true,
-    "layouts/*.js": true,
-    "pages/*.js": true,
-    "components/*.js": true,
-    "services/*.js": true,
-    "helpers/*.js": true,
-    "consts/*.js": true,
+    "app/**/*.js": true,
+    "app/**/*.d.ts": true,
+    "configs/**/*.js": true,
+    "configs/**/*.d.ts": true,
+    "layouts/**/*.js": true,
+    "layouts/**/*.d.ts": true,
+    "pages/**/*.js": true,
+    "pages/**/*.d.ts": true,
+    "components/**/*.js": true,
+    "components/**/*.d.ts": true,
+    "services/**/*.js": true,
+    "services/**/*.d.ts": true,
+    "helpers/**/*.js": true,
+    "helpers/**/*.d.ts": true,
+    "consts/**/*.js": true,
+    "consts/**/*.d.ts": true,
 
     // lib
+    "**/*.js.map": true,
     "public-api.js": true,
-    "**/*.d.ts": true,
-    "**/*.map": true
 
   }  
 }

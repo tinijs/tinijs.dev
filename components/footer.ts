@@ -5,28 +5,6 @@ import './social-icons';
 
 @Component('app-footer')
 export class FooterComponent extends TiniComponent {
-  protected template = html`
-    <div class="border">
-      <img src="../assets/logo.svg" />
-    </div>
-    <div class="themer">
-      <app-themer></app-themer>
-    </div>
-    <div class="copyright">
-      &copy; 2023 Tini JS - MIT license. Built with 💖 by
-      <a href="https://lamnhan.com" target="_blank">Lam Nhan</a>. The homepage is inspired by
-      <a href="https://nuxt.com" target="_blank">Nuxt.com</a>.
-    </div>
-    <ul class="menu">
-      <li><a href="/terms">Terms</a></li>
-      <li><a href="/privacy">Privacy</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-    <div class="social-icons">
-      <app-social-icons></app-social-icons>
-    </div>
-  `;
-
   static styles = [
     unistylus``,
     css`
@@ -113,10 +91,28 @@ export class FooterComponent extends TiniComponent {
       }
     `,
   ];
-}
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'app-footer': FooterComponent;
+  protected render() {
+    return html`
+      <div class="border">
+        <img src="../assets/logo.svg" />
+      </div>
+      <div class="themer">
+        <app-themer></app-themer>
+      </div>
+      <div class="copyright">
+        &copy; 2023 Tini JS - MIT license. Built with 💖 by
+        <a href="https://lamnhan.com" target="_blank">Lam Nhan</a>. The homepage
+        is inspired by <a href="https://nuxt.com" target="_blank">Nuxt.com</a>.
+      </div>
+      <ul class="menu">
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <div class="social-icons">
+        <app-social-icons></app-social-icons>
+      </div>
+    `;
   }
 }

@@ -10,8 +10,80 @@ import {
 import {AppConfigs} from '../app/types';
 
 @Component('app-welcome')
-export class AppWelcome extends TiniComponent {
+export class WelcomeComponent extends TiniComponent {
   @UseConfigs() configs!: AppConfigs;
+
+  static styles = [
+    unistylus``,
+    css`
+      :host {
+        display: block;
+        position: relative;
+        width: 100%;
+        padding: 4rem 1rem 2rem;
+      }
+
+      .bg-images {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100;
+
+        .mobile {
+          width: calc(100% + 2rem);
+          margin-left: -1rem;
+        }
+
+        .tablet,
+        .desktop {
+          display: none;
+        }
+      }
+
+      .content {
+        position: relative;
+        z-index: 101;
+
+        .title {
+          margin: 2rem 0;
+          font-size: 3.5rem;
+          font-weight: normal;
+          text-align: center;
+        }
+
+        .tagline {
+          font-size: 1.25rem;
+          font-weight: 300;
+          line-height: 1.75;
+          color: var(--color-medium-shade);
+          text-align: center;
+        }
+
+        .actions {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 2rem;
+
+          .github {
+            text-decoration: none;
+            color: var(--color-foreground);
+            text-decoration: none;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            margin-top: 2rem;
+
+            .icon {
+              --size: 1.2rem;
+              margin-left: 0.5rem;
+            }
+          }
+        }
+      }
+    `,
+  ];
 
   protected render() {
     return html`
@@ -42,85 +114,5 @@ export class AppWelcome extends TiniComponent {
         </div>
       </div>
     `;
-  }
-
-  protected styling() {
-    return [
-      unistylus``,
-      css`
-        :host {
-          display: block;
-          position: relative;
-          width: 100%;
-          padding: 4rem 1rem 2rem;
-        }
-
-        .bg-images {
-          position: absolute;
-          width: 100%;
-          top: 0;
-          left: 0;
-          z-index: 100;
-
-          .mobile {
-            width: calc(100% + 2rem);
-            margin-left: -1rem;
-          }
-
-          .tablet,
-          .desktop {
-            display: none;
-          }
-        }
-
-        .content {
-          position: relative;
-          z-index: 101;
-
-          .title {
-            margin: 2rem 0;
-            font-size: 3.5rem;
-            font-weight: normal;
-            text-align: center;
-          }
-
-          .tagline {
-            font-size: 1.25rem;
-            font-weight: 300;
-            line-height: 1.75;
-            color: var(--color-medium-shade);
-            text-align: center;
-          }
-
-          .actions {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 2rem;
-
-            .github {
-              text-decoration: none;
-              color: var(--color-foreground);
-              text-decoration: none;
-              display: flex;
-              flex-wrap: nowrap;
-              align-items: center;
-              margin-top: 2rem;
-
-              .icon {
-                --size: 1.2rem;
-                margin-left: 0.5rem;
-              }
-            }
-          }
-        }
-      `,
-    ];
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'app-welcome': AppWelcome;
   }
 }

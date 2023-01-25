@@ -27,9 +27,3 @@ export class DefaultLayout extends TiniComponent {
     `;
   }
 }
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'layout-default': DefaultLayout;
-  }
-}

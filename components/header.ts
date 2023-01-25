@@ -19,98 +19,6 @@ export class HeaderComponent extends TiniComponent {
 
   @Query('header') headerNode!: HTMLElement;
 
-  private scrollEvent(forced = false) {
-    const scrollY = window.scrollY;
-    if (!forced && scrollY > 96) return;
-    const bgOpacity = Math.min(0.65, scrollY / 96);
-    const bgBlur = bgOpacity * 12;
-    this.headerNode.style.setProperty(
-      '--header-background',
-      `rgba(var(--color-background-rgb), ${bgOpacity})`
-    );
-    this.headerNode.style.setProperty('--header-blur', `${bgBlur}px`);
-  }
-
-  private popstateEvent() {
-    this.solid = location.pathname !== '/';
-  }
-
-  private manageGlobalEvents(action: 'add' | 'remove') {
-    // window load
-    const windowLoadListener = () => {
-      this.scrollEvent(true);
-      this.popstateEvent();
-    };
-    window[`${action}EventListener`]('load', windowLoadListener.bind(this));
-    // window scroll
-    const windowScrollListener = () => {
-      this.scrollEvent();
-    };
-    window[`${action}EventListener`]('scroll', windowScrollListener.bind(this));
-    // window popstate
-    const windowPopstateListener = () => {
-      this.popstateEvent();
-    };
-    window[`${action}EventListener`](
-      'popstate',
-      windowPopstateListener.bind(this)
-    );
-  }
-
-  onCreate() {
-    this.manageGlobalEvents('add');
-  }
-
-  onReady() {
-    this.renderRoot
-      .querySelectorAll('.menu a')
-      .forEach(node =>
-        node.addEventListener('click', () => this.toggleMobileMenu())
-      );
-  }
-
-  onDestroy() {
-    this.manageGlobalEvents('remove');
-  }
-
-  toggleMobileMenu(expanded?: boolean) {
-    this.mobileExpanded = expanded ?? !this.mobileExpanded;
-    document.body.style.overflow = this.mobileExpanded ? 'hidden' : 'auto';
-  }
-
-  protected template = html`<header
-    class=${classMap({
-      solid: this.solid,
-      expanded: this.mobileExpanded,
-    })}
-  >
-    <button class="toggler" @click=${() => this.toggleMobileMenu()}>
-      <i
-        class=${classMap({
-          icon: true,
-          'icon-menu': !this.mobileExpanded,
-          'icon-close': this.mobileExpanded,
-        })}
-      ></i>
-    </button>
-    <a class="brand" href="/" @click=${() => this.toggleMobileMenu(false)}>
-      <img src="../assets/logo.svg" />
-      <h1>Tini</h1>
-    </a>
-    <ul class="menu">
-      <li class="docs"><a href="/docs">Docs</a></li>
-      <li class="modules"><a href="/modules">Modules</a></li>
-      <li class="support"><a href="/support">Support</a></li>
-      <li class="about"><a href="/about">About</a></li>
-    </ul>
-    <div class="social-icons">
-      <app-social-icons></app-social-icons>
-    </div>
-    <div class="themer">
-      <app-themer></app-themer>
-    </div>
-  </header>`;
-
   static styles = [
     unistylus``,
     css`
@@ -224,10 +132,98 @@ export class HeaderComponent extends TiniComponent {
       }
     `,
   ];
-}
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'app-header': HeaderComponent;
+  protected render() {
+    return html`<header
+      class=${classMap({
+        solid: this.solid,
+        expanded: this.mobileExpanded,
+      })}
+    >
+      <button class="toggler" @click=${() => this.toggleMobileMenu()}>
+        <i
+          class=${classMap({
+            icon: true,
+            'icon-menu': !this.mobileExpanded,
+            'icon-close': this.mobileExpanded,
+          })}
+        ></i>
+      </button>
+      <a class="brand" href="/" @click=${() => this.toggleMobileMenu(false)}>
+        <img src="../assets/logo.svg" />
+        <h1>Tini</h1>
+      </a>
+      <ul class="menu">
+        <li class="docs"><a href="/docs">Docs</a></li>
+        <li class="modules"><a href="/modules">Modules</a></li>
+        <li class="support"><a href="/support">Support</a></li>
+        <li class="about"><a href="/about">About</a></li>
+      </ul>
+      <div class="social-icons">
+        <app-social-icons></app-social-icons>
+      </div>
+      <div class="themer">
+        <app-themer></app-themer>
+      </div>
+    </header>`;
+  }
+
+  onCreate() {
+    this._manageGlobalEvents('add');
+  }
+
+  onReady() {
+    this.renderRoot
+      .querySelectorAll('.menu a')
+      .forEach(node =>
+        node.addEventListener('click', () => this.toggleMobileMenu())
+      );
+  }
+
+  onDestroy() {
+    this._manageGlobalEvents('remove');
+  }
+
+  toggleMobileMenu(expanded?: boolean) {
+    this.mobileExpanded = expanded ?? !this.mobileExpanded;
+    document.body.style.overflow = this.mobileExpanded ? 'hidden' : 'auto';
+  }
+
+  private _scrollEvent(forced = false) {
+    const scrollY = window.scrollY;
+    if (!forced && scrollY > 96) return;
+    const bgOpacity = Math.min(0.65, scrollY / 96);
+    const bgBlur = bgOpacity * 12;
+    this.headerNode.style.setProperty(
+      '--header-background',
+      `rgba(var(--color-background-rgb), ${bgOpacity})`
+    );
+    this.headerNode.style.setProperty('--header-blur', `${bgBlur}px`);
+  }
+
+  private _popstateEvent() {
+    this.solid = location.pathname !== '/';
+  }
+
+  private _manageGlobalEvents(action: 'add' | 'remove') {
+    // window load
+    const windowLoadListener = () => {
+      this._scrollEvent(true);
+      this._popstateEvent();
+    };
+    window[`${action}EventListener`]('load', windowLoadListener.bind(this));
+    // window scroll
+    const windowScrollListener = () => {
+      this._scrollEvent();
+    };
+    window[`${action}EventListener`]('scroll', windowScrollListener.bind(this));
+    // window popstate
+    const windowPopstateListener = () => {
+      this._popstateEvent();
+    };
+    window[`${action}EventListener`](
+      'popstate',
+      windowPopstateListener.bind(this)
+    );
   }
 }

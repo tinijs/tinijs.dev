@@ -8,3 +8,5 @@ if (splashscreenNode) {
   });
   setTimeout(() => splashscreenNode.classList.add('too-long'), 7000);
 }
+
+export {};

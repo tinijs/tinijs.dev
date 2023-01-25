@@ -13,21 +13,6 @@ import {AppConfigs} from '../app/types';
 export class SocialIconsComponent extends TiniComponent {
   @UseConfigs() configs!: AppConfigs;
 
-  protected template = html`
-    <ul>
-      <li class="twitter">
-        <a href=${this.configs.twitter} target="_blank">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li class="github">
-        <a href=${this.configs.github} target="_blank">
-          <i class="icon icon-github"></i>
-        </a>
-      </li>
-    </ul>
-  `;
-
   static styles = [
     unistylus``,
     css`
@@ -56,10 +41,21 @@ export class SocialIconsComponent extends TiniComponent {
       }
     `,
   ];
-}
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'app-social-icons': SocialIconsComponent;
+  protected render() {
+    return html`
+      <ul>
+        <li class="twitter">
+          <a href=${this.configs.twitter} target="_blank">
+            <i class="icon icon-twitter"></i>
+          </a>
+        </li>
+        <li class="github">
+          <a href=${this.configs.github} target="_blank">
+            <i class="icon icon-github"></i>
+          </a>
+        </li>
+      </ul>
+    `;
   }
 }

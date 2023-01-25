@@ -25,34 +25,6 @@ export class NavIndicatorComponent extends TiniComponent {
   ];
   private timers = [] as any[];
 
-  show() {
-    this.active = true;
-    this.timerIntervals.forEach(([time, percentage], i) =>
-      this.timers.push(
-        setTimeout(() => {
-          this.timers[i] = null;
-          this.indicatorNode.style.clipPath = `inset(0 ${percentage}% 0 0)`;
-        }, time)
-      )
-    );
-  }
-
-  hide() {
-    this.indicatorNode.style.clipPath = 'inset(0 0 0 0)';
-    setTimeout(() => {
-      this.active = false;
-      this.indicatorNode.style.clipPath = 'inset(0 100% 0 0)';
-    }, 150);
-    this.timers.forEach(item => item && clearTimeout(item));
-  }
-
-  protected template = html`
-    <div
-      class=${classMap({indicator: true, active: this.active})}
-      @click=${this.hide}
-    ></div>
-  `;
-
   static styles = css`
     .indicator {
       z-index: 900;
@@ -79,10 +51,34 @@ export class NavIndicatorComponent extends TiniComponent {
       }
     }
   `;
-}
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'app-nav-indicator': NavIndicatorComponent;
+  protected render() {
+    return html`
+      <div
+        class=${classMap({indicator: true, active: this.active})}
+        @click=${this.hide}
+      ></div>
+    `;
+  }
+
+  show() {
+    this.active = true;
+    this.timerIntervals.forEach(([time, percentage], i) =>
+      this.timers.push(
+        setTimeout(() => {
+          this.timers[i] = null;
+          this.indicatorNode.style.clipPath = `inset(0 ${percentage}% 0 0)`;
+        }, time)
+      )
+    );
+  }
+
+  hide() {
+    this.indicatorNode.style.clipPath = 'inset(0 0 0 0)';
+    setTimeout(() => {
+      this.active = false;
+      this.indicatorNode.style.clipPath = 'inset(0 100% 0 0)';
+    }, 150);
+    this.timers.forEach(item => item && clearTimeout(item));
   }
 }
