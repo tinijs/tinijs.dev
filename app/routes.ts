@@ -1,5 +1,3 @@
-import {Route} from '@tinijs/router';
-
 const routes: Route[] = [
   {
     path: '',

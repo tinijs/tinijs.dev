@@ -1,13 +1,3 @@
-import {
-  TiniComponent,
-  Component,
-  Reactive,
-  Query,
-  html,
-  css,
-  classMap,
-} from '@tinijs/core';
-
 @Component('app-nav-indicator')
 export class NavIndicatorComponent extends TiniComponent {
   @Reactive() active = false;

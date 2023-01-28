@@ -1,17 +1,3 @@
-import {
-  TiniComponent,
-  Component,
-  Reactive,
-  Query,
-  html,
-  css,
-  unistylus,
-  classMap,
-} from '@tinijs/core';
-
-import './themer';
-import './social-icons';
-
 @Component('app-header')
 export class HeaderComponent extends TiniComponent {
   @Reactive() solid = false;

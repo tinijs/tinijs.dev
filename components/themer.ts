@@ -1,15 +1,3 @@
-import {
-  TiniComponent,
-  Component,
-  Inject,
-  html,
-  css,
-  unistylus,
-  Observe,
-  Observer,
-} from '@tinijs/core';
-import {SettingService} from '@tinijs/useful';
-
 @Component('app-themer')
 export class ThemerComponent extends TiniComponent {
   @Inject() settingService!: SettingService;

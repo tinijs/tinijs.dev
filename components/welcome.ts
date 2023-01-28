@@ -1,14 +1,3 @@
-import {
-  TiniComponent,
-  Component,
-  UseConfigs,
-  html,
-  css,
-  unistylus,
-} from '@tinijs/core';
-
-import {AppConfigs} from '../app/types';
-
 @Component('app-welcome')
 export class WelcomeComponent extends TiniComponent {
   @UseConfigs() configs!: AppConfigs;
