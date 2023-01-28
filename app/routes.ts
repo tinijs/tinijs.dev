@@ -1,5 +1,3 @@
-import {Route} from '@tinijs/router';
-
 const routes: Route[] = [
   {
     path: '',
@@ -10,7 +8,7 @@ const routes: Route[] = [
         component: 'page-home',
       },
       {
-        path: '/docs/:slug?',
+        path: '/docs/:cat?/:slug?',
         component: 'page-docs',
         action: async () => {
           await import('../pages/docs');

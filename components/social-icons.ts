@@ -1,14 +1,3 @@
-import {
-  TiniComponent,
-  Component,
-  UseConfigs,
-  html,
-  css,
-  unistylus,
-} from '@tinijs/core';
-
-import {AppConfigs} from '../app/types';
-
 @Component('app-social-icons')
 export class SocialIconsComponent extends TiniComponent {
   @UseConfigs() configs!: AppConfigs;

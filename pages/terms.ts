@@ -1,5 +1,3 @@
-import {TiniComponent, Page, html, css, unistylus} from '@tinijs/core';
-
 @Page('page-terms')
 export class TermsPage extends TiniComponent {
   static styles = [

@@ -1,23 +1,9 @@
-import {
-  TiniComponent,
-  App,
-  APP_ROOT_TEMPLATE,
-  Inject,
-  html,
-  hideAppSplashscreen,
-} from '@tinijs/core';
-import {initMetas, Meta} from '@tinijs/meta';
-import {registerRoutes, Router} from '@tinijs/router';
-import {createStore} from '@tinijs/store';
-import {LocalstorageService, SettingService} from '@tinijs/useful';
-
 import configs from '../configs/development';
 import providers from './providers';
 import routes from './routes';
 import {metas} from './metas';
 import states, {Store} from './states';
 
-import '../components/nav-indicator';
 import '../layouts/default';
 import '../pages/home';
 import '../pages/oops';

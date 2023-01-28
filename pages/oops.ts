@@ -1,6 +1,3 @@
-import {TiniComponent, Page, html, css, unistylus} from '@tinijs/core';
-import {PageMetas} from '@tinijs/meta';
-
 @Page('page-oops')
 export class OopsPage extends TiniComponent {
   metas: PageMetas = {

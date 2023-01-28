@@ -49,6 +49,8 @@
   },
   "devDependencies": {
     "@tinijs/cli": "file:../cli/tinijs-cli-0.0.3.tgz",
+    "@tinijs/parcel-reporter-build-pwa": "file:../parcel-reporter-build-pwa/tinijs-parcel-reporter-build-pwa-0.0.3.tgz",
+    "@tinijs/parcel-transformer-default": "file:../parcel-transformer-default/tinijs-parcel-transformer-default-0.0.3.tgz",
     "gts": "^4.0.0",
     "typescript": "~4.9.4"
   }

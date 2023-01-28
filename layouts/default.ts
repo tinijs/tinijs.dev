@@ -1,8 +1,3 @@
-import {TiniComponent, Layout, html, css} from '@tinijs/core';
-
-import '../components/header';
-import '../components/footer';
-
 @Layout('layout-default')
 export class DefaultLayout extends TiniComponent {
   static styles = css`

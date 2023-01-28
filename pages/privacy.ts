@@ -1,5 +1,3 @@
-import {TiniComponent, Page, html, css, unistylus} from '@tinijs/core';
-
 @Page('page-privacy')
 export class PrivacyPage extends TiniComponent {
   static styles = [

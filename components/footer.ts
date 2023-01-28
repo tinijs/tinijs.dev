@@ -1,8 +1,3 @@
-import {TiniComponent, Component, html, css, unistylus} from '@tinijs/core';
-
-import './themer';
-import './social-icons';
-
 @Component('app-footer')
 export class FooterComponent extends TiniComponent {
   static styles = [
