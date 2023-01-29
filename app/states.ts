@@ -1,4 +1,4 @@
-import {Store as TiniStore} from '@tinijs/store';
+import {TiniStore} from '@tinijs/store';
 
 const states = {
   key: 'value',

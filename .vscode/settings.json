@@ -29,8 +29,9 @@
     "consts/**/*.d.ts": true,
 
     // lib
-    "**/*.js.map": true,
     "public-api.js": true,
+    "public-api.d.ts": true,
+    "**/*.js.map": true
 
   }  
 }

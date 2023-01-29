@@ -41,6 +41,7 @@
   "dependencies": {
     "@tinijs/core": "file:../core/tinijs-core-0.0.3.tgz",
     "@tinijs/meta": "file:../meta/tinijs-meta-0.0.3.tgz",
+    "@tinijs/parcel-transformer-default": "file:../parcel-transformer-default/tinijs-parcel-transformer-default-0.0.3.tgz",
     "@tinijs/pwa": "file:../pwa/tinijs-pwa-0.0.3.tgz",
     "@tinijs/router": "file:../router/tinijs-router-0.0.3.tgz",
     "@tinijs/store": "file:../store/tinijs-store-0.0.3.tgz",

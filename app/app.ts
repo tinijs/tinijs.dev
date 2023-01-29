@@ -17,10 +17,11 @@ import routes from './routes';
 import {metas} from './metas';
 import states, {Store} from './states';
 
-import '../components/nav-indicator';
 import '../layouts/default';
 import '../pages/home';
 import '../pages/oops';
+
+import '../components/nav-indicator';
 
 @App(providers, {splashscreen: 'manual', navIndicator: true})
 export class AppRoot extends TiniComponent {
