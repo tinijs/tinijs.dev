@@ -1,5 +1,8 @@
 # TiniJS Homepage 
 
+> [!IMPORTANT]
+> This previously experiment is wrapped up, moving forward the development will happen at <https://github.com/tinijs/tinijs>.
+
 The homepage of the TiniJS project.
 
 Please visit: <https://tinijs.dev>
